@@ -1,0 +1,29 @@
+[
+    {
+      "id": 1,
+      "field": "ID",
+      "type": "Bheem"
+    },
+    {
+      "id": 2,
+      "field": "City",
+      "type": "Dholakpur"
+    },
+    {
+      "id": 3,
+      "field": "Girlfriend",
+      "type": "Chutki"
+    },
+    {
+      "id": 4,
+      "field": "Wife",
+      "type": "Indumathi"
+    },
+    {
+      "id": 5,
+      "field": "Brother",
+      "type": "Raju"
+    }
+
+
+]
