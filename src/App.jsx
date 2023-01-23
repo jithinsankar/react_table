@@ -22,7 +22,7 @@ function App() {
     const inputName = event.target.getAttribute('name');
     const inputValue = event.target.value;
 
-    // while updating state we should not directly assign instead create new memory
+    // while updating state we should not directly assign instead create new memory as we should only use use set.. to update changes
     const newFormData = { ...field }
     newFormData[inputName] = inputValue
     setField(newFormData)
