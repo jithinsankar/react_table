@@ -1,14 +1,16 @@
-const EditableRow = () => {
+const EditableRow = ({ handleEditFormChange, handleEditCancel, tableData }) => {
     return (
         <tr>
             <td>
-                <input type="text" name='field' required='required' placeholder='Enter field' />
+                <input type="text" name='field' defaultValue={tableData.field} required='required' placeholder='Enter field' onChange={handleEditFormChange} />
             </td>
             <td>
-                <input type="text" name='type' required='required' placeholder='Enter Type' />
+                <input type="text" name='type' defaultValue={tableData.type} required='required' placeholder='Enter Type' onChange={handleEditFormChange} />
             </td>
             <td>
-                <button >Submit</button>
+                <button type="submit">Save</button>
+                <button type="button" onClick={handleEditCancel}>Cancel</button>
+
             </td>
         </tr>
     )

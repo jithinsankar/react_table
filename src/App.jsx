@@ -40,14 +40,47 @@ function App() {
     setTableDatas(newtableDatas)
   }
 
-  const handleEditButton = (event, id) => {
+  const handleEditButton = (event, tableData) => {
     event.preventDefault();
-    setEditable(id);
+    setEditable(tableData.id);
+    setEditForm({ field: tableData.field, type: tableData.type })
   }
 
+  const handleEditFormChange = (event) => {
+    event.preventDefault();
+    const inputName = event.target.getAttribute('name');
+    const inputValue = event.target.value;
+    const newFormData = { ...editForm }
+    newFormData[inputName] = inputValue;
+    setEditForm(newFormData)
+  }
+
+  const handleEditFormSubmit = (event) => {
+    event.preventDefault();
+    const newTableDatas = [...tableDatas]
+    const index = newTableDatas.findIndex((tableData) => tableData.id === editable)
+    console.log("index", index)
+    newTableDatas[index] = { id: editable, field: editForm.field, type: editForm.type }
+    setTableDatas(newTableDatas)
+    setEditable()
+
+  }
+
+  const handleEditCancel = (event) => {
+    event.preventDefault();
+    setEditable()
+  }
+
+  const handleRemoveButton = (event, id) => {
+    event.preventDefault();
+    const newTableDatas = [...tableDatas]
+    const index = newTableDatas.findIndex((newtableData) => newtableData.id === id)
+    newTableDatas.splice(index, 1)
+    setTableDatas(newTableDatas)
+  }
   return (
     <div>
-      <form>
+      <form onSubmit={handleEditFormSubmit}>
         <table>
           <thead>
             <tr>
@@ -62,7 +95,7 @@ function App() {
             {
               tableDatas.map((tableData) => (
                 <>
-                  {editable === tableData.id ? <EditableRow key={tableData.id} /> : <ReadOnlyRow tableData={tableData} key={tableData.id} handleEditButton={handleEditButton} />}
+                  {editable === tableData.id ? <EditableRow handleEditFormChange={handleEditFormChange} tableData={tableData} handleEditCancel={handleEditCancel} /> : <ReadOnlyRow tableData={tableData} handleEditButton={handleEditButton} handleRemoveButton={handleRemoveButton} />}
 
                 </>
 
