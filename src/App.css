@@ -1,6 +1,6 @@
-table {
+/* table {
   border-collapse: collapse;
-  /* width: 100%; */
+
 }
 
 thead {
@@ -13,4 +13,4 @@ tbody{
 
 td,th{
   border: 1px solid black;
-}
+} */

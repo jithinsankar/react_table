@@ -9,14 +9,19 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "highlight.js": "^11.7.0",
     "nanoid": "^4.0.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "react-highlight": "^0.15.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",
     "@types/react-dom": "^18.0.9",
     "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.4",
     "vite": "^4.0.0"
   }
 }
